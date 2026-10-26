@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - À propos</title>
+    <meta name="description" content="Découvrez le parcours de Jacob Essomba : du droit au développement logiciel, en passant par la sécurité. Étudiant à Epitech.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a href="projects.html">Projets</a>
+                </li>
+                <li class="menu__item menu__item--active">
+                    <a href="about.html">À propos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="about">
+        <h1 class="about__title">À propos de moi</h1>
+
+        <div class="about__content">
+            <!-- Mon parcours -->
+            <section class="about__section">
+                <h2 class="about__subtitle">Mon parcours</h2>
+                <p class="about__text">
+                    Mon parcours est guidé par une constante : la volonté
+                    de résoudre des problèmes et d'aider les autres.
+                    Après avoir entamé des études de droit à l'Université
+                    Paris-Saclay, j'ai exercé en tant qu'agent de prévention
+                    et de sécurité pendant 6 ans. Cette expérience m'a forgé
+                    un solide sens des responsabilités, une grande capacité
+                    à gérer les situations d'urgence et un véritable sens
+                    du contact humain.
+                </p>
+                <p class="about__text" style="margin-top: 1rem;">
+                    Aujourd'hui, j'ai fait le choix d'orienter ma carrière
+                    vers ma passion : l'informatique. Je suis actuellement
+                    étudiant en troisième année à Epitech, dans l'optique
+                    d'effectuer un MSc en Cloud (promotion 2029).
+                </p>
+            </section>
+
+            <!-- Mon CV -->
+            <section class="about__section about__section--cv">
+                <h2 class="about__subtitle">Mon CV</h2>
+                <p class="about__text">
+                    Vous pouvez télécharger mon CV au format PDF pour
+                    en savoir plus sur mon parcours et mes expériences
+                    professionnelles.
+                </p>
+                <a href="assets/cv.pdf" download class="about__cv-button">Télécharger mon CV (PDF)</a>
+            </section>
+
+            <!-- SECTION CONTACT -->
+            <section class="contact">
+                <div class="contact__info">
+                    <h2 class="contact__title">Me contacter</h2>
+                    <p>Email : <a href="mailto:jacob.essombaekani@gmail.com">jacob.essombaekani@gmail.com</a></p>
+                    <p>LinkedIn : <a href="https://www.linkedin.com/in/jacob-e-b3587b401/" target="_blank">Mon profil LinkedIn</a></p>
+                    <p>GitHub : <a href="https://github.com/Jacob-Essomba" target="_blank">Mon GitHub</a></p>
+                </div>
+
+                <!-- Formulaire modifié avec Formspree et l'ID -->
+                <form class="contact__form" id="contact-form" action="https://formspree.io/f/mwllllgr" method="POST">
+                    <div class="contact__group">
+                        <label for="name" class="contact__label">Nom :</label>
+                        <input type="text" id="name" name="name" class="contact__input" required>
+                    </div>
+                    <div class="contact__group">
+                        <label for="email" class="contact__label">Email :</label>
+                        <input type="email" id="email" name="email" class="contact__input" required>
+                    </div>
+                    <div class="contact__group">
+                        <label for="subject" class="contact__label">Objet :</label>
+                        <input type="text" id="subject" name="subject" class="contact__input" required>
+                    </div>
+                    <div class="contact__group">
+                        <label for="message" class="contact__label">Message :</label>
+                        <textarea id="message" name="message" rows="5" class="contact__input" required></textarea>
+                    </div>
+                    <button type="submit" class="contact__button">Envoyer</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__brand">
+                
+            </div>
+            <nav class="footer__nav" aria-label="Navigation de pied de page">
+                <a href="projects.html">Projets</a>
+                <a href="about.html">À propos</a>
+                <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Mon CV</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                &copy; <span id="current-year">2026</span> Jacob ESSOMBA. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script pour l'année et le formulaire -->
+    <script>
+        // Mise à jour de l'année
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        // Gestion du formulaire via l'API Fetch (Formspree)
+        const form = document.getElementById('contact-form');
+
+        async function handleSubmit(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            
+            const data = new FormData(event.target);
+            const button = form.querySelector('.contact__button');
+            
+            // On change le bouton pour indiquer que ça charge
+            button.textContent = "Envoi en cours...";
+            button.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json' // Requis par Formspree pour le mode AJAX
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Succès
+                    alert("Merci ! Votre message a bien été envoyé.");
+                    form.reset(); // Vide le formulaire
+                    
+                    // Change temporairement le bouton en vert
+                    button.textContent = "Message envoyé !";
+                    button.style.background = "#28a745"; 
+                    
+                    setTimeout(() => {
+                        button.textContent = "Envoyer";
+                        button.style.background = ""; // Remet la couleur d'origine
+                        button.disabled = false;
+                    }, 3000);
+                } else {
+                    // Erreur renvoyée par Formspree
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oups! Il y a eu un problème lors de l'envoi.");
+                        }
+                    });
+                    button.textContent = "Envoyer";
+                    button.disabled = false;
+                }
+            }).catch(error => {
+                // Erreur réseau (ex: pas de connexion)
+                alert("Oups! Problème de connexion. Veuillez réessayer.");
+                button.textContent = "Envoyer";
+                button.disabled = false;
+            });
+        }
+
+        form.addEventListener("submit", handleSubmit);
+    </script>
+</body>
+</html>

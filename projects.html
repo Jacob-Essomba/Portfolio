@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - Projets</title>
+    <meta name="description" content="Découvrez les projets de Jacob Essomba, développeur Full Stack & Cloud à Epitech.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item menu__item--active">
+                    <a href="projects.html">Projets</a>
+                </li>
+                <li class="menu__item">
+                    <a href="about.html">À propos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION HERO -->
+    <section class="hero">
+        <div class="hero__content">
+            <img src="assets/profil.png" alt="Photo de profil de Jacob Essomba" class="hero__image">
+            
+            <h1 class="hero__name">Jacob ESSOMBA</h1>
+            <p class="hero__title">Développeur Full Stack</p>
+            <p class="hero__school">Pré-MSc (3e année) — EPITECH Paris</p>
+            <p class="hero__promo">MSc Promo 2029</p>
+        </div>
+    </section>
+
+    <!-- BANDEAU DÉFILANT ROUGE -->
+    <div class="banner">
+        <p class="banner__text">
+            🚀 À la recherche d'une alternance pour un poste de développeur web à partir de Janvier 2027 🚀
+        </p>
+    </div>
+
+    <!-- SECTION PROJETS -->
+    <main class="projects">
+        <div class="projects__intro-section">
+            <p class="projects__eyebrow">PORTFOLIO</p>
+            <h2 class="projects__title">Mes Projets</h2>
+            <p class="projects__intro">Voici une sélection de mes réalisations académiques et personnelles.</p>
+        </div>
+
+        <div class="projects__grid">
+            
+            <!-- PROJET 1 : Jeu du Pendu -->
+            <article class="project">
+                <div class="project__header">
+                    <p class="project__category">PYTHON</p>
+                    <h3 class="project__title">Jeu du Pendu (Hangman)</h3>
+                </div>
+                
+                <div class="project__body">
+                    <p class="project__description">
+                        <strong>Objectif :</strong> Développer un jeu du pendu en ligne de commande. Le joueur choisit une catégorie (animaux, pays, fruits, métiers) et doit deviner un mot caché lettre par lettre. Le jeu gère les erreurs, affiche un dessin en ASCII et propose de rejouer à la fin.
+                    </p>
+                    <ul class="project__skills">
+                        <li class="project__skill">Python</li>
+                        <li class="project__skill">POO</li>
+                        <li class="project__skill">Logique algorithmique</li>
+                    </ul>
+                </div>
+
+                <div class="project__footer">
+                    <a href="https://github.com/Jacob-Essomba/hangman-python" target="_blank" class="project__link">Voir le code (GitHub) &rarr;</a>
+                </div>
+            </article>
+
+            <!-- PROJET 2 : Portfolio -->
+            <article class="project">
+                <div class="project__header">
+                    <p class="project__category">WEB</p>
+                    <h3 class="project__title">Portfolio Personnel</h3>
+                </div>
+                
+                <div class="project__body">
+                    <p class="project__description">
+                        <strong>Objectif :</strong> Créer un site web responsive pour présenter mon parcours et mes compétences. Ce projet m'a permis d'apprendre à structurer un site multi-pages, à utiliser la méthode BEM pour le CSS et à déployer un site en ligne avec GitHub Pages.
+                    </p>
+                    <ul class="project__skills">
+                        <li class="project__skill">HTML5</li>
+                        <li class="project__skill">CSS3</li>
+                        <li class="project__skill">BEM</li>
+                        <li class="project__skill">GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <div class="project__footer">
+                    <a href="https://github.com/Jacob-Essomba/Portfolio" target="_blank" class="project__link">Voir le code (GitHub) &rarr;</a>
+                </div>
+            </article>
+
+            <!-- PROJET 3 : Jobboard -->
+            <article class="project">
+                <div class="project__header">
+                    <p class="project__category">WEB</p>
+                    <h3 class="project__title">Jobboard (Plateforme d'emploi)</h3>
+                </div>
+                
+                <div class="project__body">
+                    <p class="project__description">
+                        <strong>Objectif :</strong> Développer une plateforme web permettant aux recruteurs de publier des offres d'emploi et aux candidats de postuler. Ce projet m'a permis de travailler sur la gestion d'utilisateurs, de bases de données et de formulaires complexes.
+                    </p>
+                    <ul class="project__skills">
+                        <li class="project__skill">HTML/CSS</li>
+                        <li class="project__skill">JavaScript</li>
+                        <li class="project__skill">Base de données</li>
+                        <li class="project__skill">UI/UX</li>
+                    </ul>
+                </div>
+
+                <div class="project__footer">
+                    <a href="https://github.com/Jacob-Essomba/jobboard-2" target="_blank" class="project__link">Voir le code (GitHub) &rarr;</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__brand">
+                
+            </div>
+            <nav class="footer__nav" aria-label="Navigation de pied de page">
+                <a href="projects.html">Projets</a>
+                <a href="about.html">À propos</a>
+                <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Mon CV</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                &copy; <span id="current-year">2026</span> Jacob ESSOMBA. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
